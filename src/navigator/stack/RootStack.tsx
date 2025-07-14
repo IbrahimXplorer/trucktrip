@@ -4,11 +4,7 @@ import { LoginScreen } from '../../screens';
 import { BottomTabNavigator } from '../tab/BottomTabNavigator';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-
-export type RootStackParamList = {
-  Login: undefined;
-  Root: undefined;
-};
+import { RootStackParamList } from '../../types/navigation';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

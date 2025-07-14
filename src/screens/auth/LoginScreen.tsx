@@ -5,13 +5,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import { useDispatch } from 'react-redux';
-import { Input } from '../../components';
-import Button from '../../components/atoms/Button';
+import { Button, Input } from '../../components';
 import { colors } from '../../constants/colors';
 import { fontFamilies } from '../../constants/font';
-import { RootStackParamList } from '../../navigator/stack/RootStack';
 import { setUser } from '../../store/slices/authSlice';
 import { AppDispatch } from '../../store/store';
+import { RootStackParamList } from '../../types/navigation';
 
 type LoginRouteProp = RouteProp<RootStackParamList, 'Login'>;
 type LoginNavigationProp = NativeStackNavigationProp<
@@ -41,7 +40,7 @@ export const LoginScreen: FC<LoginProps> = ({ navigation }) => {
 
     dispatch(setUser({ email, password }));
 
-    navigation.replace('Root');
+    navigation.replace('Root', { screen: 'Home' });
   };
 
   return (
