@@ -12,9 +12,19 @@ type ButtonProps = TouchableOpacityProps & {
   title: string;
 };
 
-export const Button: React.FC<ButtonProps> = ({ title, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({
+  title,
+  disabled = false,
+  ...props
+}) => {
   return (
-    <TouchableOpacity style={styles.button} {...props}>
+    <TouchableOpacity
+      style={[
+        styles.button,
+        { backgroundColor: disabled ? colors.primary50 : colors.primary },
+      ]}
+      {...props}
+    >
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -32,6 +42,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: colors.light,
     fontFamily: fontFamilies.INTER.semiBold,
-    fontSize:16
+    fontSize: 16,
   },
 });

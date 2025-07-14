@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { ActivityIndicator } from 'react-native';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 const App = () => {
   return (
@@ -13,7 +14,9 @@ const App = () => {
       <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
         <SafeAreaProvider>
           <GestureHandlerRootView>
-            <Navigator />
+            <BottomSheetModalProvider>
+              <Navigator />
+            </BottomSheetModalProvider>
           </GestureHandlerRootView>
         </SafeAreaProvider>
       </PersistGate>
