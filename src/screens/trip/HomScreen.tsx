@@ -118,6 +118,11 @@ export const HomScreen = ({ navigation }: HomeScreenProps) => {
       }),
     );
 
+    // Reset form fields
+    setLoadLocation('');
+    setUnloadLocation('');
+    setDate(new Date());
+
     navigation.navigate('Trip');
   }, [dispatch, loadLocation, unloadLocation, date, navigation]);
 
