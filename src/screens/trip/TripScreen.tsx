@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
 import { Header, TripCard } from '../../components';
@@ -11,6 +11,12 @@ import { BottomTabParamList } from '../../types/navigation';
 type TripScreenProps = BottomTabScreenProps<BottomTabParamList, 'Trip'>;
 
 const ItemSeparator = () => <View style={styles.itemSeparator} />;
+
+const EmptyComponent = () => (
+  <View style={styles.emptyContainer}>
+    <Text style={styles.emptyText}>No trips found</Text>
+  </View>
+);
 
 export const TripScreen: FC<TripScreenProps> = () => {
   const { trips } = useSelector((state: RootState) => state.trip);
@@ -24,6 +30,7 @@ export const TripScreen: FC<TripScreenProps> = () => {
         renderItem={({ item }) => <TripCard trip={item} />}
         keyboardShouldPersistTaps="handled"
         ItemSeparatorComponent={ItemSeparator}
+        ListEmptyComponent={EmptyComponent}
       />
     </SafeAreaView>
   );
@@ -39,5 +46,15 @@ const styles = StyleSheet.create({
   },
   itemSeparator: {
     height: 20,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 100,
+  },
+  emptyText: {
+    fontSize: 16,
+    color: colors.darkGray,
   },
 });
