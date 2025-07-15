@@ -1,13 +1,19 @@
+/* eslint-disable no-void */
 import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
 import { RootStack } from './stack/RootStack';
 import Toast from 'react-native-toast-message';
+import BootSplash from 'react-native-bootsplash';
 
 export const Navigator = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      onReady={() => {
+        void BootSplash.hide({ fade: true });
+      }}
+    >
       <RootStack />
-       <Toast />
+      <Toast />
     </NavigationContainer>
   );
 };
