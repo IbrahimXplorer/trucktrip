@@ -6,7 +6,7 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Foundation from 'react-native-vector-icons/Foundation';
 
 import { colors } from '../../constants/colors';
-import { HomScreen, ProfileScreen, TripScreen } from '../../screens';
+import { HomScreen, SettingsScreen, TripScreen } from '../../screens';
 import { BottomTabParamList } from '../../types/navigation';
 
 const Tab = createBottomTabNavigator<BottomTabParamList>();
@@ -27,7 +27,7 @@ export const BottomTabNavigator = () => {
               return <Foundation name="home" size={size} color={color} />;
             case 'Trip':
               return <FontAwesome5 name="truck" size={size} color={color} />;
-            case 'Profile':
+            case 'Settings':
               return <Feather name="settings" size={size} color={color} />;
             default:
               return null;
@@ -37,7 +37,7 @@ export const BottomTabNavigator = () => {
     >
       <Tab.Screen name="Home" component={HomScreen} />
       <Tab.Screen name="Trip" component={TripScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen}  />
     </Tab.Navigator>
   );
 };
