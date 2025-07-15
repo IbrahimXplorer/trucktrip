@@ -15,9 +15,10 @@ export const Header: FC<HeaderProps> = ({
 }) => {
   return (
     <View style={styles.header}>
-      {showIcon && <View />}
+      <View />
       <Text style={styles.headerText}>{title}</Text>
       {showIcon && <Feather name="settings" size={24} color={colors.dark} />}
+      {!showIcon && <View />}
     </View>
   );
 };
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical:10
+    paddingVertical: 10,
   },
   headerText: {
     fontSize: 18,

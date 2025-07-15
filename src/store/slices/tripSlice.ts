@@ -1,14 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Trip, TripState } from '../../types/trip';
 
-export interface Trip {
-  date: string;
-  loadLocation: string;
-  unloadLocation: string;
-}
-
-interface TripState {
-  trips: Trip[];
-}
 
 const initialState: TripState = {
   trips: [],
