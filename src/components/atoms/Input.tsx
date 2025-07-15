@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { TextInput, TextInputProps, StyleSheet } from 'react-native';
 import { colors } from '../../constants/colors';
 import { fontFamilies } from '../../constants/font';
 
-export const Input = (props: TextInputProps) => {
+type InputProps = {
+  color?: string;
+} & TextInputProps;
+
+export const Input: FC<InputProps> = ({
+  color = colors.primary50,
+  placeholderTextColor = colors.primary50,
+  ...rest
+}) => {
   return (
     <TextInput
-      placeholderTextColor={colors.primary50}
-      style={styles.input}
-      {...props}
+      placeholderTextColor={placeholderTextColor}
+      style={[styles.input, { color: color }]}
+      {...rest}
     />
   );
 };
@@ -19,7 +27,6 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: colors.primary100,
     borderRadius: 8,
-    color: colors.dark,
     padding: 15,
     fontFamily: fontFamilies.INTER.normal,
   },

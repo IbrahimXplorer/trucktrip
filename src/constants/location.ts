@@ -1,4 +1,4 @@
-export const location = [
+export const locations = [
   { id: 1, name: 'Dhaka' },
   { id: 2, name: 'Chittagong' },
   { id: 3, name: 'Sylhet' },
